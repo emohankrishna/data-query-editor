@@ -8,6 +8,9 @@
 - Simple, user-friendly interface to run queries and view results.
 - Mock data to simulate a real database environment.
 
+## Additional Enhancements
+- Added support for Alias `AS` Operator.
+
 ## Technologies Used
 
 - **JavaScript** (for the query engine and logic)
@@ -59,6 +62,6 @@ Ensure you have the following installed on your machine:
 
 ## Future Enhancements
 
-- Support for more complex SQL operations like `WHERE`, `AS`, `ORDER By`, `JOIN`, `GROUP BY`, and `HAVING`.
+- Support for more complex SQL operations like `WHERE`, `ORDER By`, `JOIN`, `GROUP BY`, and `HAVING`.
 - Support for multiple datasets (mock databases).
 - Enhance the query parser to handle more advanced SQL syntax.

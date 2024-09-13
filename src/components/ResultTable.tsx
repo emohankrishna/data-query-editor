@@ -1,11 +1,12 @@
-import { ITable } from "../types/QueryResult.ts";
+import { Table } from "../types/QueryResult.ts";
 import "./ResultTable.css";
 interface ResultTable<T> {
   data: T[];
-  columns: (keyof T)[];
-  error:string
+  columns: string[];
+  displayColumns: Map<string, string>;
+  error:string;
 }
-const ResultTable = <T extends ITable>({ data, columns, error = '' }: ResultTable<T>) => {
+const ResultTable = <T extends Table>({ data, columns, error = '', displayColumns = new Map() }: ResultTable<T>) => {
   return (
     <div className="grid-container-root">
       <h3>Query Results : </h3>
@@ -14,7 +15,7 @@ const ResultTable = <T extends ITable>({ data, columns, error = '' }: ResultTabl
           <tr>
             {columns.map((column, index) => (
               <th key={`heading-${index}`} className="table-header">
-                {column}
+                {displayColumns.get(column) || column}
               </th>
             ))}
           </tr>
