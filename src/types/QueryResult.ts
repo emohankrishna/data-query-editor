@@ -1,7 +1,4 @@
-export interface ITable {
-    [key:string]:object
-}
-export interface IUser extends ITable {
+export interface IUser {
     id: number
     name: string
     email: string
@@ -9,11 +6,13 @@ export interface IUser extends ITable {
 
 
 
-export interface ITicket extends ITable{
+export interface ITicket{
     id: number
     user_id: number
     description: string
 }
+
+export type Table = IUser[] | ITicket[]
 
 
 export type IDatabase = {

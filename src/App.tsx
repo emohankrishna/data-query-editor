@@ -4,15 +4,14 @@ import QueryEditor from "./components/QueryEditor";
 import ResultTable from "./components/ResultTable";
 import mockData from "./mockData/mockDatabase.ts";
 import { executeQuery, parseQuery } from "./components/QueryEngine.ts";
-import { ITable } from "./types/QueryResult.ts";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [data, setData] = useState<{ entries: object[], columns: string[] }>({ entries: [], columns: [] });
+  const [data, setData] = useState<{ entries: object[], columns: string[], displayColumns:Map<string,string> }>({ entries: [], columns: [], displayColumns: new Map() });
   const [queryError, setQueryError] = useState('')
   const handleExecute = () => {
-    const parsedResults = parseQuery(query)
-    const { error } = parsedResults
+    const parsedResults: { columns: string[], tableName: string, error:string, columnAlias:Map<string, string> } = parseQuery(query)
+    const { error, columnAlias } = parsedResults
     if (error) {
       setQueryError(error)
       return 
@@ -23,11 +22,11 @@ function App() {
     );
     if (results.error){
       setQueryError(results.error)
-      setData({entries: [], columns: []})
+      setData({entries: [], columns: [], displayColumns: new Map()})
       return
     }
     setQueryError('')
-    setData({entries: results.entries, columns: results.columns});
+    setData({entries: results.entries, columns: results.columns, displayColumns: columnAlias});
   };
   return (
     <div className="app-container">
@@ -41,6 +40,7 @@ function App() {
         data={data.entries}
         error={queryError}
         columns={data.columns}
+        displayColumns={data.displayColumns}
         keyColumn="id"
       ></ResultTable>
     </div>
