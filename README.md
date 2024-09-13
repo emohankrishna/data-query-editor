@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# Data Query Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Data Query Editor** is a lightweight SQL-like Query Editor web application that allows users to input SQL queries to interact with a mock database. This tool is designed to help users execute simple SQL queries such as `SELECT` on a predefined in-memory dataset and see the results in real-time.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Execute SQL-like `SELECT` queries.
+- Simple, user-friendly interface to run queries and view results.
+- Mock data to simulate a real database environment.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **JavaScript** (for the query engine and logic)
+- **HTML/CSS** (for the user interface)
+- **npm** (for managing dependencies)
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Ensure you have the following installed on your machine:
+- **Node.js**: [Download here](https://nodejs.org/)
+- **npm**: It comes with Node.js installation.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Steps to Run the Server
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+    ```bash
+    git clone hhttps://github.com/emohankrishna/data-query-editor.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd data-query-editor
+    ```
+
+3. Install the necessary dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+5. Open your browser and navigate to `SELECT * FROM users` to use the application.
+
+## How to Use
+
+1. Enter a valid SQL-like query in the input field. 
+   - Example: `SELECT * FROM users` or `SELECT id, name, email FROM users`.
+2. Click the "Run Query" button.
+3. The result will be displayed in the results section below the query editor.
+
+## Future Enhancements
+
+- Support for more complex SQL operations like `WHERE`, `AS`, `ORDER By`, `JOIN`, `GROUP BY`, and `HAVING`.
+- Support for multiple datasets (mock databases).
+- Enhance the query parser to handle more advanced SQL syntax.
