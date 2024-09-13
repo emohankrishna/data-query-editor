@@ -1,7 +1,7 @@
 import { Table } from "../types/QueryResult.ts";
 import "./ResultTable.css";
 interface ResultTable<T> {
-  data: T[];
+  data: T;
   columns: string[];
   displayColumns: Map<string, string>;
   error:string;
